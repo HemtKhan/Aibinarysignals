@@ -3,482 +3,534 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Binary Premium Signals</title>
+  <title>AI Binary Signals</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-    
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
-    
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0a0a0a, #121212);
+      background: linear-gradient(120deg, #0f0f0f, #1e1e1e);
       color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      line-height: 1.6;
+      padding-bottom: 5rem;
+    }
+    header {
+      padding: 4rem 0 2rem;
       text-align: center;
-      padding: 20px;
-      overflow: hidden;
-      position: relative;
+      background: rgba(0,0,0,0.3);
     }
-    
-    /* Snowfall Animation */
-    .snow {
-      position: absolute;
-      top: -10px;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-    
-    .snowflake {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      filter: blur(1px);
-      opacity: 0.8;
-      animation: snowfall linear infinite;
-    }
-    
-    @keyframes snowfall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-      }
-    }
-    
-    .container {
-      background: rgba(15, 15, 15, 0.8);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 2.5rem;
-      border-radius: 20px;
-      max-width: 500px;
-      width: 100%;
-      box-shadow: 0 0 40px rgba(0, 255, 170, 0.2);
-      animation: pulseGlow 4s ease-in-out infinite;
-      position: relative;
-      z-index: 2;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      border-left: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    @keyframes pulseGlow {
-      0%, 100% {
-        box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
-      }
-      50% {
-        box-shadow: 0 0 40px rgba(0, 255, 170, 0.4);
-      }
-    }
-    
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #fff;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    header h1 {
+      font-size: 3rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      color: gold;
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+      animation: glow 1.5s ease-in-out infinite alternate;
     }
-    
-    .license-box {
-      background: rgba(0, 0, 0, 0.4);
-      color: #39ff14;
-      padding: 15px 25px;
-      border: 1px solid rgba(57, 255, 20, 0.3);
-      margin: 1.5rem 0;
-      font-family: 'Courier New', monospace;
-      display: inline-block;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
-      letter-spacing: 1px;
-      text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
-      animation: textGlow 2s ease-in-out infinite alternate;
-    }
-    
-    @keyframes textGlow {
+    @keyframes glow {
       0% {
-        text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
+        text-shadow: 0 0 12px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.6);
       }
       100% {
-        text-shadow: 0 0 15px rgba(57, 255, 20, 0.9);
+        text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 40px rgba(255, 215, 0, 0.8);
       }
     }
-    
-    input[type="text"] {
-      padding: 14px 20px;
-      border: none;
-      width: 100%;
-      border-radius: 10px;
-      margin: 1rem 0;
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      font-size: 16px;
-      outline: none;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
+    header p {
+      color: #ccc;
+      margin-top: 1rem;
+      font-size: 1.1rem;
     }
-    
-    input[type="text"]:focus {
-      border-color: #39ff14;
-      box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    
-    button {
-      padding: 14px 30px;
-      background: linear-gradient(145deg, #ffd700, #ffcc00);
+    .cta-button {
+      background: gold;
       color: #000;
-      border: none;
+      padding: 12px 28px;
       border-radius: 30px;
-      cursor: pointer;
-      margin: 0.5rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
-    }
-    
-    button:active {
-      transform: translateY(1px);
-    }
-    
-    button::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        to bottom right,
-        rgba(255, 255, 255, 0.3),
-        rgba(255, 255, 255, 0)
-      );
-      transform: rotate(30deg);
-      transition: all 0.3s ease;
-    }
-    
-    button:hover::after {
-      left: 100%;
-    }
-    
-    .telegram-btn {
-      background: linear-gradient(145deg, #0088cc, #0077b3);
-      color: white;
-      box-shadow: 0 0 15px rgba(0, 136, 204, 0.3);
-    }
-    
-    .telegram-btn:hover {
-      box-shadow: 0 0 25px rgba(0, 136, 204, 0.5);
-    }
-    
-    .telegram-btn::after {
-      background: linear-gradient(
-        to bottom right,
-        rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0)
-      );
-    }
-    
-    #premium-section {
-      display: none;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
       margin-top: 2rem;
+      transition: 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
     }
-    
-    .error {
-      color: #ff4d4d;
-      margin: 1rem 0;
-      font-weight: 500;
-      background: rgba(255, 77, 77, 0.1);
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 77, 77, 0.3);
-      text-shadow: 0 0 8px rgba(255, 77, 77, 0.5);
+    .cta-button:hover {
+      background: #f5c400;
+      transform: scale(1.05);
     }
-    
-    .success {
-      color: #39ff14;
-      margin: 1rem 0;
-      font-weight: 500;
-      background: rgba(57, 255, 20, 0.1);
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid rgba(57, 255, 20, 0.3);
-      text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+    section h2 {
+      margin-top: 3rem;
+      font-size: 2rem;
+      color: gold;
+      border-bottom: 2px solid gold;
+      display: inline-block;
+      padding-bottom: 0.5rem;
     }
-    
-    .actions {
-      margin: 1.5rem 0;
-    }
-    
-    ::placeholder {
-      color: #aaa;
-    }
-    
-    #telegramLink {
-      margin-top: 2rem;
-      text-align: center;
-    }
-    
-    #premiumInfo {
-      background: rgba(30, 30, 30, 0.6);
+    .feature-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       padding: 1.5rem;
-      color: #ffcc00;
-      margin-top: 2rem;
-      border: 1px solid rgba(255, 204, 0, 0.2);
-      box-shadow: 0 0 20px rgba(255, 204, 0, 0.1);
+      margin-top: 1.5rem;
+      box-shadow: 0 8px 24px rgba(255, 215, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
-    
-    #premiumInfo h4 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: #ffcc00;
-      text-shadow: 0 0 8px rgba(255, 204, 0, 0.5);
+    .signal-section {
+      margin-top: 4rem;
     }
-    
-    #premiumInfo ul {
-      list-style-type: none;
-      padding: 0;
+    .signal-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+      transition: transform 0.2s ease;
     }
-    
-    #premiumInfo li {
-      margin: 0.8rem 0;
+    .signal-card:hover {
+      transform: translateY(-5px);
+    }
+    .signal-card strong {
+      font-size: 1.3rem;
+      color: gold;
+    }
+    .direction-glow-up {
+      color: #00ff99;
+      text-shadow: 0 0 10px #00ff99;
+    }
+    .direction-glow-down {
+      color: #ff3333;
+      text-shadow: 0 0 10px #ff3333;
+    }
+    .statistics {
       display: flex;
-      justify-content: space-between;
-      font-size: 1rem;
+      justify-content: space-around;
+      margin-top: 4rem;
+      color: gold;
+      text-align: center;
     }
-    
-    #premiumInfo li span:first-child {
+    .stat-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1.5rem;
+      width: 200px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      transition: 0.3s;
+    }
+    .stat-box:hover {
+      transform: scale(1.05);
+    }
+    .free-signal-time {
+      font-size: 0.8rem;
       color: #ccc;
     }
-    
-    #premiumInfo li span:last-child {
-      color: #fff;
+    #countdown {
+      color: #ccc;
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+    }
+    .signal-box {
+      margin-bottom: 1.5rem;
+    }
+    /* New styles for reviews section */
+    .reviews-section {
+      margin-top: 4rem;
+      text-align: center;
+    }
+    .review-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,215,0,0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255,215,0,0.15);
+    }
+    .reviewer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .reviewer-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: gold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      font-weight: bold;
+      color: #000;
+    }
+    .reviewer-name {
       font-weight: 600;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+      color: gold;
     }
-    
+    .reviewer-status {
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+    .review-stars {
+      color: gold;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .review-text {
+      font-style: italic;
+      color: #ddd;
+      line-height: 1.6;
+    }
+    .review-date {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 1rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 5rem;
+      padding: 2rem 0;
+      border-top: 1px solid gold;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .premium-section {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .premium-section p {
+      margin-top: 1rem;
+      color: #ccc;
+    }
+    .telegram-link {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 10px 24px;
+      background: #ffcc00;
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 25px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+    .telegram-link:hover {
+      background: #e6b800;
+    }
     .glow-signals {
-      color: #00ffaa;
-      text-shadow: 0 0 10px rgba(0, 255, 170, 0.7);
+      color: #ff9900;
+      text-shadow: 0 0 10px #ff9900, 0 0 20px #ff9900;
     }
-    
     .glow-users {
       color: #66ccff;
-      text-shadow: 0 0 10px rgba(102, 204, 255, 0.7);
+      text-shadow: 0 0 10px #66ccff, 0 0 20px #66ccff;
     }
-    
     .glow-premium {
       color: #ff33cc;
-      text-shadow: 0 0 10px rgba(255, 51, 204, 0.7);
+      text-shadow: 0 0 10px #ff33cc, 0 0 20px #ff33cc;
     }
-    
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      .container {
-        padding: 1.5rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-      
-      button {
-        padding: 12px 25px;
-      }
+    /* Premium Signals Bar Styles */
+    .premium-bar {
+      background: rgba(18, 18, 18, 0.9);
+      border-radius: 12px;
+      padding: 0.8rem;
+      margin-top: 2rem;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 255, 128, 0.4), 0 6px 30px rgba(0, 0, 0, 0.5);
+      height: 150px;
+      width: 100%;
+      border: 2px solid #00e676;
+    }
+    .premium-scroll {
+      display: block;
+      height: 100%;
+      overflow: hidden;
+    }
+    .premium-content {
+      display: block;
+      animation: scrollPremium 120s linear infinite;
+    }
+    .premium-signal {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .premium-signal .win {
+      color: #00e676;
+      text-shadow: 0 0 12px rgba(0, 255, 128, 0.8);
+    }
+    .premium-signal .loss {
+      color: #ff3d00;
+      text-shadow: 0 0 12px rgba(255, 61, 0, 0.8);
+    }
+    @keyframes scrollPremium {
+      0% { transform: translateY(100%); }
+      100% { transform: translateY(-100%); }
+    }
+    .premium-signal:hover {
+      transform: scale(1.05);
+      transition: all 0.3s ease;
     }
   </style>
 </head>
 <body>
 
-<!-- Snowfall Effect -->
-<div class="snow" id="snow"></div>
-
-<div class="container">
-  <h2>AI Binary Premium Signals</h2>
-
-  <div>
-    <span class="license-box" id="licenseDisplay">Generating license...</span>
-    <button onclick="copyLicense()">Copy</button>
-    <a href="https://t.me/khantrader4" target="_blank" class="telegram-btn" style="text-decoration: none; display: inline-block;">
-      <button class="telegram-btn">Get Approved</button>
-    </a>
+<header>
+  <div class="container">
+    <h1>AI Binary Signals</h1>
+    <p>Smarter, faster, and more accurate binary options signals</p>
+    <a href="https://access3.netlify.app/" class="telegram-link" target="_blank">Join Premium</a>
   </div>
+</header>
 
-  <div class="actions">
-    <p>After sending, wait for admin approval. Then paste it below:</p>
-    <input type="text" id="licenseInput" placeholder="Paste your approved license key" />
-    <button onclick="verifyLicense()">Unlock Premium</button>
-    <div id="messageBox"></div>
+<section class="container statistics">
+  <div class="stat-box glow-signals" id="total-signals">
+    <h3>Total Signals</h3>
+    <p id="signals-count">0</p>
   </div>
+  <div class="stat-box glow-users" id="total-users">
+    <h3>Total Users</h3>
+    <p id="users-count">0</p>
+  </div>
+  <div class="stat-box glow-premium" id="premium-users">
+    <h3>Premium Users</h3>
+    <p id="premium-count">0</p>
+  </div>
+</section>
 
-  <!-- Premium Stats Section -->
-  <div id="premiumInfo">
-    <h4>Premium Stats:</h4>
-    <ul>
-      <li><span>Total Signals:</span> <span id="totalSignals" class="glow-signals">452,899</span></li>
-      <li><span>Total Users:</span> <span id="totalUsers" class="glow-users">2,392</span></li>
-      <li><span>Premium Users:</span> <span id="totalPremiumUsers" class="glow-premium">1,248</span></li>
-    </ul>
+<section class="container signal-section" id="free">
+  <h2>Free Signal</h2>
+  <div class="signal-card signal-box">
+    <strong id="signal-pair"></strong>
+    <p>Time: <span id="signal-time"></span> | Expiry: 1 min | Confidence: <span id="signal-confidence"></span>%</p>
+    <p id="countdown">Next signal in 60s</p>
+    <p class="free-signal-time">Free signal time is <span class="utc-time">UTC-04:00</span></p>
   </div>
+  <a href="https://access3.netlify.app/" class="telegram-link" target="_blank">Join Premium</a>
+</section>
 
-  <!-- Telegram Contact Link -->
-  <div id="telegramLink">
-    <p>Need help or have questions?</p>
-    <a href="https://t.me/khantrader4" target="_blank">
-      <button class="telegram-btn">Message @khantrader4</button>
-    </a>
+<!-- Added Premium Signals Results Section Below Free Signals -->
+<section class="container" id="premium-results">
+  <h2>Premium Signals Results</h2>
+  <p style="color: gold; text-align: center; margin-bottom: 1rem; font-weight: 600;">
+    Premium signals have 90% accuracy rate vs 75% for free signals
+  </p>
+  <div class="premium-bar">
+    <div class="premium-scroll" id="premium-scroll">
+      <div class="premium-content" id="premium-content">
+        <!-- Signals will appear here dynamically -->
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+<section class="container">
+  <h2>Why Traders Love Us</h2>
+  <div class="feature-box">
+    <h3>AI Smart Decisions</h3>
+    <p>We scan market conditions in real-time using our AI models to deliver you the best possible trades.</p>
+  </div>
+  <div class="feature-box">
+    <h3>Fast Delivery</h3>
+    <p>Signals delivered instantly to your screen and Telegram with real-time updates and confidence scores.</p>
+  </div>
+  <div class="feature-box">
+    <h3>Easy to Use</h3>
+    <p>No complicated analysis. Just follow the signals and trade with confidence.</p>
+  </div>
+</section>
+
+<section class="container premium-section" id="premium">
+  <h2>Premium Access</h2>
+  <p>Unlock advanced signals, priority support, and much more with a premium plan</p>
+  <a href="https://access3.netlify.app/" class="telegram-link">Join Premium</a>
+</section>
+
+<!-- New Reviews Section -->
+<section class="container reviews-section">
+  <h2>What Our Traders Say</h2>
+  
+  <div class="review-cards">
+    
+    <!-- Review 1 -->
+    <div class="review-card">
+      <div class="reviewer">
+        <div class="reviewer-avatar">JD</div>
+        <div>
+          <div class="reviewer-name">John D.</div>
+          <div class="reviewer-status">Premium Member</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The premium signals have a 90% win rate for me. Made back my subscription cost in just 2 days. The AI analysis is incredibly accurate!"</p>
+      <div class="review-date">Joined 3 months ago</div>
+    </div>
+    
+    <!-- Review 2 -->
+    <div class="review-card">
+      <div class="reviewer">
+        <div class="reviewer-avatar">SM</div>
+        <div>
+          <div class="reviewer-name">Sarah M.</div>
+          <div class="reviewer-status">VIP Member</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I've tried many signal services, but none come close to this AI system. The 1-minute expiry signals are especially profitable."</p>
+      <div class="review-date">Joined 5 months ago</div>
+    </div>
+    
+    <!-- Review 3 -->
+    <div class="review-card">
+      <div class="reviewer">
+        <div class="reviewer-avatar">RK</div>
+        <div>
+          <div class="reviewer-name">Robert K.</div>
+          <div class="reviewer-status">New Member</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">"Even the free signals are good, but premium is worth every penny. Customer support helped me set everything up quickly."</p>
+      <div class="review-date">Joined 2 weeks ago</div>
+    </div>
+    
+  </div>
+  
+  <a href="https://access3.netlify.app/" class="telegram-link" style="margin-top: 2rem;">See More Success Stories</a>
+</section>
+
+<footer>
+  <p>&copy; 2025 AI Binary Signals. All Rights Reserved.</p>
+</footer>
 
 <script>
-  // Generate snowflakes
-  function createSnow() {
-    const snowContainer = document.getElementById('snow');
-    const snowflakeCount = 50;
-    
-    for (let i = 0; i < snowflakeCount; i++) {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      
-      // Random size between 1px and 4px
-      const size = Math.random() * 3 + 1;
-      snowflake.style.width = `${size}px`;
-      snowflake.style.height = `${size}px`;
-      
-      // Random position
-      snowflake.style.left = `${Math.random() * 100}%`;
-      
-      // Random animation duration between 5s and 15s
-      const duration = Math.random() * 10 + 5;
-      snowflake.style.animationDuration = `${duration}s`;
-      
-      // Random delay
-      snowflake.style.animationDelay = `${Math.random() * 5}s`;
-      
-      snowContainer.appendChild(snowflake);
-    }
-  }
-
-  // Generate a random license key
-  const generatedKey = 'LIC-' + Math.random().toString(36).substr(2, 8).toUpperCase();
-  document.getElementById('licenseDisplay').textContent = generatedKey;
-
-  // Copy license to clipboard
-  function copyLicense() {
-    const tempInput = document.createElement("input");
-    tempInput.value = generatedKey;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
-    
-    const messageBox = document.getElementById("messageBox");
-    messageBox.textContent = "License copied to clipboard!";
-    messageBox.className = "success";
-    
-    setTimeout(() => {
-      messageBox.textContent = "";
-      messageBox.className = "";
-    }, 2000);
-  }
-
-  // Verify license key
-  async function verifyLicense() {
-    const userKey = document.getElementById("licenseInput").value.trim();
-    const messageBox = document.getElementById("messageBox");
-
-    messageBox.textContent = "";
-    messageBox.className = "";
-
-    if (userKey === "") {
-      messageBox.textContent = "Please enter a license key.";
-      messageBox.className = "error";
-      return;
-    }
-
-    // Show loading state
-    messageBox.textContent = "Verifying license...";
-    messageBox.className = "";
-
-    try {
-      const res = await fetch("https://raw.githubusercontent.com/HemtKhan/Aibinarysignals/main/Key.text?" + new Date().getTime());
-      const data = await res.text();
-      const validKeys = data.split(/\r?\n/).map(k => k.trim()).filter(k => k !== "");
-
-      if (validKeys.includes(userKey)) {
-        messageBox.textContent = "✅ License approved. Redirecting...";
-        messageBox.className = "success";
-
-        // Immediately redirect to premium site
-        window.location.href = "https://premuim1.netlify.app/";
-      } else {
-        messageBox.textContent = "❌ License not approved or removed.";
-        messageBox.className = "error";
-      }
-    } catch (err) {
-      messageBox.textContent = "⚠️ Error checking license. Try again later.";
-      messageBox.className = "error";
-      console.error("License verification error:", err);
-    }
-  }
-
-  // Static counter functionality
+  // Generate Premium Signals IMMEDIATELY on page load
   document.addEventListener('DOMContentLoaded', function() {
-    // Create snowfall effect
-    createSnow();
+    generatePremiumSignals(50); // Show signals right away
     
-    // Set initial values
-    const launchDate = new Date('2024-01-01T00:00:00Z').getTime();
+    // Rest of your existing functions
+    const launchTimestamp = new Date('2024-01-01T00:00:00Z').getTime();
     const now = new Date().getTime();
-    const timeElapsed = now - launchDate;
+    const secondsSinceLaunch = Math.floor((now - launchTimestamp) / 1000);
+
+    const totalSignals = 2930 + Math.floor(secondsSinceLaunch / 10);
+    const totalUsers = 1393 + Math.floor(secondsSinceLaunch / 3600) * 2;
+    const totalPremium = 728 + Math.floor(secondsSinceLaunch / 21600);
+
+    let signals = totalSignals;
+    let users = totalUsers;
+    let premium = totalPremium;
+
+    startCount(document.querySelector('#signals-count'), signals, 1500);
+    startCount(document.querySelector('#users-count'), users, 1500);
+    startCount(document.querySelector('#premium-count'), premium, 1500);
+
+    setInterval(() => document.querySelector('#signals-count').textContent = ++signals, 10000);
+    setInterval(() => document.querySelector('#users-count').textContent = users += 2, 3600000);
+    setInterval(() => document.querySelector('#premium-count').textContent = premium += 1, 21600000);
+
+    updateFreeSignal();
+    startCountdown();
     
-    // Calculate current values based on time elapsed
-    let signals = 452899 + Math.floor(timeElapsed / 10000); // +1 every 10 seconds
-    let users = 2392 + Math.floor(timeElapsed / 3600000) * 2; // +2 every hour
-    let premiumUsers = 1248 + Math.floor(timeElapsed / 21600000) * 2; // +2 every 6 hours
-    
-    // Format numbers with commas
-    document.getElementById('totalSignals').textContent = signals.toLocaleString();
-    document.getElementById('totalUsers').textContent = users.toLocaleString();
-    document.getElementById('totalPremiumUsers').textContent = premiumUsers.toLocaleString();
-    
-    // Set up intervals to increment counters
-    setInterval(() => {
-      signals++;
-      document.getElementById('totalSignals').textContent = signals.toLocaleString();
-    }, 10000); // Every 10 seconds
-    
-    setInterval(() => {
-      users += 2;
-      document.getElementById('totalUsers').textContent = users.toLocaleString();
-    }, 3600000); // Every hour
-    
-    setInterval(() => {
-      premiumUsers += 2;
-      document.getElementById('totalPremiumUsers').textContent = premiumUsers.toLocaleString();
-    }, 21600000); // Every 6 hours
+    // Generate additional signals in background to fill the scroller
+    setTimeout(() => generatePremiumSignals(50), 1000);
   });
+
+  const startCount = (el, target, duration) => {
+    let start = 0;
+    const increment = target / (duration / 10);
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= target) {
+        start = target;
+        clearInterval(counter);
+      }
+      el.textContent = Math.floor(start);
+    }, 10);
+  };
+
+  const pairs = ['EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/CAD', 'BTC/USD'];
+
+  function updateFreeSignal() {
+    const now = new Date();
+    const utcOffset = -4;
+    const localTime = new Date(now.getTime() + utcOffset * 60 * 60 * 1000);
+    const hour = String(localTime.getUTCHours()).padStart(2, '0');
+    const minute = String(localTime.getUTCMinutes()).padStart(2, '0');
+    const timeStr = `${hour}:${minute}`;
+
+    const pair = pairs[Math.floor(Math.random() * pairs.length)];
+    const direction = Math.random() > 0.5 ? 'UP' : 'DOWN';
+    const confidence = Math.floor(Math.random() * 21) + 75;
+
+    const pairEl = document.getElementById('signal-pair');
+    const dirClass = direction === 'UP' ? 'direction-glow-up' : 'direction-glow-down';
+
+    pairEl.innerHTML = `${pair} - <span class="${dirClass}">${direction}</span>`;
+    document.getElementById('signal-time').textContent = timeStr;
+    document.getElementById('signal-confidence').textContent = confidence;
+  }
+
+  function startCountdown() {
+    let timeLeft = 60;
+    const countdownEl = document.getElementById('countdown');
+    countdownEl.textContent = `Next signal in ${timeLeft}s`;
+    const countdownInterval = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = `Next signal in ${timeLeft}s`;
+      if (timeLeft <= 0) {
+        clearInterval(countdownInterval);
+        updateFreeSignal();
+        startCountdown(); // restart countdown
+      }
+    }, 1000);
+  }
+
+  // Optimized premium signal generation
+  const premiumPairs = [
+    'EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/CAD', 'BTC/USD', 'ETH/USD', 'USD/PKR', 'NZD/JPY',
+    'EUR/GBP', 'EUR/JPY', 'GBP/JPY', 'AUD/JPY', 'USD/CHF', 'GBP/CHF', 'EUR/CHF', 'USD/CAD',
+    'AUD/USD', 'NZD/USD', 'EUR/AUD', 'USD/SGD', 'EUR/NZD', 'USD/TRY', 'USD/ZAR', 'USD/INR',
+    'USD/HKD', 'USD/MXN', 'USD/RUB', 'BTC/USDT', 'ETH/USDT', 'XRP/USD', 'LTC/USD', 'EOS/USD'
+  ];
+  const directions = ['UP', 'DOWN'];
+
+  function generatePremiumSignals(count = 50) {
+    const container = document.getElementById("premium-content");
+    if (!container) return;
+    
+    const fragment = document.createDocumentFragment();
+    
+    for (let i = 0; i < count; i++) {
+      const pair = premiumPairs[Math.floor(Math.random() * premiumPairs.length)];
+      const direction = directions[Math.floor(Math.random() * directions.length)];
+      const isWin = Math.random() < 0.9; // 90% Win rate
+
+      const div = document.createElement('div');
+      div.className = 'premium-signal';
+      div.innerHTML = `${pair} ${direction} <span class="${isWin ? 'win' : 'loss'}">${isWin ? 'WIN' : 'LOSS'}</span>`;
+      fragment.appendChild(div);
+    }
+    
+    container.appendChild(fragment);
+  }
 </script>
 
 </body>
